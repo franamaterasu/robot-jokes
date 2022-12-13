@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./card.scss";
 
 const Card = ({ user, joke, getJokes }) => {
   const { id, type, setup, punchline } = joke;
@@ -17,15 +18,16 @@ const Card = ({ user, joke, getJokes }) => {
   return (
     <article className="card">
       <div className="card__picture">
-        <img src={avatar} alt={first_name} />
+        <img className="card__image" src={avatar} alt={first_name} />
         <p className="card__name">{`${first_name} ${last_name}`}</p>
-        <span>{id}</span>
+        <span className="card__id">Joke nº: {id}</span>
+        <span className="card__type">{type}</span>
       </div>
       <div className="card__info">
-        <p>
-          {setup} - {type}
-        </p>
-        {showPunchLine && joke ? <p>{punchline}</p> : null}
+        <p className="card__joke">{setup}</p>
+        {showPunchLine && joke ? (
+          <p className="card__punchline">{punchline}</p>
+        ) : null}
       </div>
       <footer className="card__footer">
         <button
@@ -35,7 +37,9 @@ const Card = ({ user, joke, getJokes }) => {
           {showPunchLine ? "Hide punchline" : "Show punchline"}
         </button>
         <button className="card__footer-button">Add to favourite's list</button>
-        <button onClick={handleClick}>Show new Joke</button>
+        <button className="card__footer-button" onClick={handleClick}>
+          Show new Joke
+        </button>
       </footer>
     </article>
   );

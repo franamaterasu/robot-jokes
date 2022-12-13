@@ -1,0 +1,87 @@
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 320px;
+  border: 2px solid #000;
+
+  &__picture {
+    position: relative;
+    font-size: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__name {
+    position: absolute;
+    bottom: 27px;
+    background-color: #000;
+    color: #fff;;
+    padding: 10px 35px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  
+  &__id,
+  &__type {
+    background-color: rgb(253, 197, 0);
+    font-family: 'Lora', sans-serif;
+    padding: 5px 20px;
+    font-size: 14px;
+    position: absolute;
+  }
+
+  &__id {
+    bottom: 65px;
+    left: 0;
+  }
+
+  &__type {
+    top: 15px;
+    right: 0;
+  }
+  
+
+  &__joke {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    padding: 15px 20px;
+    line-height: 23px;
+  }
+
+  &__punchline {
+    text-align: center;
+    font-family: 'Lora', sans-serif;
+    padding: 15px 20px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__footer {
+    display: flex;
+
+    &-button {
+      background-color: darken(rgb(253, 197, 0), 5%);
+      font-family: 'Lora', sans-serif;
+      border: 0;
+      padding: 10px;
+
+      &:nth-child(2) {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+      }
+
+      &:hover {
+        background-color: lighten(rgb(253, 197, 0), 5%);
+        cursor: pointer;
+      }
+    }
+  }
+}
