@@ -7,10 +7,8 @@ const App = () => {
 
   return (
     <section>
-      {joke && <Card user={user} joke={joke} />}
-      <button onClick={() => getJokes()}>
-        {!joke ? <span>Show first joke</span> : <span>Show new Joke</span>}
-      </button>
+      {joke && <Card user={user} joke={joke} getJokes={getJokes} />}
+      {!joke && <button onClick={() => getJokes()}>Show first joke!</button>}
     </section>
   );
 };
