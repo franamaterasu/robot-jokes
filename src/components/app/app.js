@@ -2,12 +2,12 @@ import Card from "../card";
 import useFetch from "../hooks/useFetch";
 
 const App = () => {
-  const { jokes, randomNumber, getJokes } = useFetch();
+  const { jokes, user, randomNumber, getJokes } = useFetch();
   const joke = jokes[randomNumber];
 
   return (
     <section>
-      {joke && <Card joke={joke} />}
+      {joke && <Card user={user} joke={joke} />}
       <button onClick={() => getJokes()}>
         {!joke ? <span>Show first joke</span> : <span>Show new Joke</span>}
       </button>
