@@ -1,3 +1,4 @@
+import { GrRobot } from "react-icons/gr";
 import Card from "../card";
 import useFetch from "../hooks/useFetch";
 import "./app.scss";
@@ -9,7 +10,14 @@ const App = () => {
   return (
     <section className="app">
       {joke && <Card user={user} joke={joke} getJokes={getJokes} />}
-      {!joke && <button onClick={() => getJokes()}>Show first joke!</button>}
+      {!joke && (
+        <section className="app__intro">
+          <GrRobot className="app__intro-icon" />
+          <button className="app__intro-button" onClick={() => getJokes()}>
+            <span className="app__intro-button-text">Show first joke!</span>
+          </button>
+        </section>
+      )}
     </section>
   );
 };

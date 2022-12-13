@@ -34,11 +34,17 @@ const Card = ({ user, joke, getJokes }) => {
           className="card__footer-button"
           onClick={handleClickShowPunchLine}
         >
-          {showPunchLine ? "Hide punchline" : "Show punchline"}
+          <span className="card__footer-button-text">
+            {showPunchLine ? "Hide punchline" : "Show punchline"}
+          </span>
         </button>
-        <button className="card__footer-button">Add to favourite's list</button>
+        <button className="card__footer-button">
+          <span className="card__footer-button-text">
+            Add to favourite's list
+          </span>
+        </button>
         <button className="card__footer-button" onClick={handleClick}>
-          Show new Joke
+          <span className="card__footer-button-text">Show new Joke</span>
         </button>
       </footer>
     </article>
