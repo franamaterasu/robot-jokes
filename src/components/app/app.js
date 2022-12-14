@@ -38,6 +38,10 @@ const App = () => {
       } else {
         setShowError(true);
       }
+
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
     }
   }, [favoriteJoke]);
 
