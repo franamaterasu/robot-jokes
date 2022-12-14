@@ -1,3 +1,5 @@
+@import '../../scss/main.scss';
+
 .home {
   height: 100vh;
   display: flex;
@@ -14,7 +16,7 @@
   &__link {
     margin-bottom: 20px;
     text-decoration: none;
-    color: #000;
+    color: $black;
   }
 
   &__cards {
@@ -28,14 +30,14 @@
   }
 
   &__intro-button {
-    background-color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    background-color: $white;
+    font-family: $font-secondary;
+    font-weight: $font-bold;
     font-size: 20px;
     padding: 10px 15px;
     position: relative;
     overflow:hidden;
-    border: 1px solid #000;
+    border: 1px solid $black;
     transition: color .5s ease-in-out;
 
     &-text {
@@ -51,15 +53,15 @@
       left: 0;
       bottom: -48px;
       height: 100%;
-      background-color: #000;
-      border: 1px solid #000;
+      background-color: $black;
+      border: 1px solid $black;
       transition: bottom .5s ease-in-out;
       
     }
 
     &:hover {
       cursor: pointer;
-      color: #fff;
+      color: $white;
 
       &::before {
         bottom: 0;
@@ -69,10 +71,10 @@
 
   &__error {
     margin-top: 15px;
-    font-family: 'Lora', sans-serif;
-    background-color: #000;
+    font-family: $font-primary;
+    background-color: $black;
     width: 100%;
-    color: #fff;
+    color: $white;
     text-align: center;
     padding: 10px;
     box-sizing: border-box;

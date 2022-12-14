@@ -1,4 +1,6 @@
+@import '../../scss/main.scss';
+
 .app {
-  background-color: rgb(253, 197, 0);
+  background-color: $yellow;
   height: 100vh;
 }

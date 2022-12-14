@@ -1,14 +1,16 @@
+@import '../../scss/main.scss';
+
 .card {
-  background-color: #fff;
+  background-color: $white;
   border-radius: 5px;
   max-width: 320px;
-  border: 2px solid #000;
+  border: 2px solid $black;
 
   &__picture {
     position: relative;
     font-size: 0;
     min-height: 320px;
-    background-color: #fff;
+    background-color: $white;
   }
 
   &__image {
@@ -19,18 +21,18 @@
   &__name {
     position: absolute;
     bottom: 27px;
-    background-color: #000;
-    color: #fff;;
+    background-color: $black;
+    color: $white;;
     padding: 10px 35px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    font-family: $font-secondary;
+    font-weight: $font-bold;
     font-size: 18px;
   }
   
   &__id,
   &__type {
-    background-color: rgb(253, 197, 0);
-    font-family: 'Lora', sans-serif;
+    background-color: $yellow;
+    font-family: $font-primary;
     padding: 5px 20px;
     font-size: 14px;
     position: absolute;
@@ -48,18 +50,18 @@
   
 
   &__joke {
-    background: #000;
-    color: #fff;
+    background: $black;
+    color: $white;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    font-family: $font-secondary;
+    font-weight: $font-bold;
     padding: 15px 20px;
     line-height: 23px;
   }
 
   &__punchline {
     text-align: center;
-    font-family: 'Lora', sans-serif;
+    font-family: $font-primary;
     padding: 15px 20px;
     font-size: 14px;
     line-height: 20px;
@@ -69,9 +71,9 @@
     display: flex;
 
     &-button {
-      background-color: darken(rgb(253, 197, 0), 5%);
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
+      background-color: darken($yellow, 5%);
+      font-family: $font-secondary;
+      font-weight: $font-bold;
       border: 0;
       padding: 10px;
       position: relative;
@@ -91,19 +93,19 @@
         left: 0;
         bottom: -58px;
         height: 100%;
-        background-color: #000;
-        border: 1px solid #000;
+        background-color: $black;
+        border: 1px solid $black;
         transition: bottom .5s ease-in-out; 
       }
 
       &:nth-child(2) {
-        border-left: 1px solid #000;
-        border-right: 1px solid #000;
+        border-left: 1px solid $black;
+        border-right: 1px solid $black;
       }
 
       &:hover {
         cursor: pointer;
-        color: #fff;
+        color: $white;
 
         &::before {
           bottom: 0;

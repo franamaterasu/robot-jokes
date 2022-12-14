@@ -1,3 +1,5 @@
+@import '../../scss/main.scss';
+
 .empty-state {
   margin-bottom: 25px;
   text-align: center;
@@ -9,7 +11,7 @@
 
   &__message {
     font-size: 21px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    font-family: $font-secondary;
+    font-weight: $font-bold;
   }
 }

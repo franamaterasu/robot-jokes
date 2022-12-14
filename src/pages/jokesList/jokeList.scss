@@ -1,3 +1,5 @@
+@import '../../scss/main.scss';
+
 .list {
   display: flex;
   justify-content: center;
@@ -19,18 +21,18 @@
   }
 
   &__table-line {
-    background-color: #fff;
+    background-color: $white;
 
     &:hover {
-      background-color: darken(rgb(253, 197, 0), 5%);
+      background-color: darken($yellow, 5%);
     }
   }
 
   &__table-header {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    background-color: $black;
+    color: $white;
+    font-family: $font-secondary;
+    font-weight: $font-bold;
     padding: 10px 20px;
 
     &:first-of-type {
@@ -46,8 +48,8 @@
     vertical-align: middle;
     text-align: center;
     padding: 10px 20px;
-    font-family: 'Lora', sans-serif;
-    border: 1px solid #000;
+    font-family: $font-primary;
+    border: 1px solid $black;
     
     &:last-of-type {
       border-bottom-left-radius: 5px;
