@@ -26,7 +26,9 @@ const App = () => {
   };
 
   useEffect(() => {
-    setFavoriteList([...favoriteList, favoriteJoke]);
+    if (Object.keys(favoriteJoke).length !== 0) {
+      setFavoriteList([...favoriteList, favoriteJoke]);
+    }
   }, [favoriteJoke]);
 
   return (
@@ -39,6 +41,7 @@ const App = () => {
             getJokes={getJokes}
             handleClickFavourite={handleClickFavourite}
           />
+          <p>{favoriteList.length}</p>
         </>
       )}
       {!joke && (
