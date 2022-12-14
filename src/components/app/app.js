@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import Card from "../card";
-import useFetch from "../hooks/useFetch";
-import { GrRobot } from "react-icons/gr";
+import useFetch from "../../components/hooks/useFetch";
+import Home from "../../pages/home";
+import JokesList from "../../pages/jokesList";
+import { Route, Routes } from "react-router-dom";
 import "./app.scss";
 
 const App = () => {
@@ -31,27 +32,25 @@ const App = () => {
     }
   }, [favoriteJoke]);
 
+  console.log(favoriteList);
+
   return (
     <section className="app">
-      {joke && (
-        <>
-          <Card
-            user={user}
-            joke={joke}
-            getJokes={getJokes}
-            handleClickFavourite={handleClickFavourite}
-          />
-          <p>{favoriteList.length}</p>
-        </>
-      )}
-      {!joke && (
-        <section className="app__intro">
-          <GrRobot className="app__intro-icon" />
-          <button className="app__intro-button" onClick={() => getJokes()}>
-            <span className="app__intro-button-text">Show first joke!</span>
-          </button>
-        </section>
-      )}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              joke={joke}
+              user={user}
+              handleClickFavourite={handleClickFavourite}
+              getJokes={getJokes}
+              favoriteList={favoriteList}
+            />
+          }
+        />
+        <Route path="/jokes" element={<JokesList />} />
+      </Routes>
     </section>
   );
 };
