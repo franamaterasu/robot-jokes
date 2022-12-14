@@ -1,0 +1,15 @@
+.empty-state {
+  margin-bottom: 25px;
+  text-align: center;
+
+  &__icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+  }
+
+  &__message {
+    font-size: 21px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+}
