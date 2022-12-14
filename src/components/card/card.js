@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./card.scss";
 
-const Card = ({ user, joke, getJokes }) => {
+const Card = ({ user, joke, getJokes, handleClickFavourite }) => {
   const { id, type, setup, punchline } = joke;
   const { avatar, first_name, last_name } = user;
   const [showPunchLine, setShowPunchLine] = useState(false);
@@ -38,7 +38,10 @@ const Card = ({ user, joke, getJokes }) => {
             {showPunchLine ? "Hide punchline" : "Show punchline"}
           </span>
         </button>
-        <button className="card__footer-button">
+        <button
+          className="card__footer-button"
+          onClick={() => handleClickFavourite(joke, user)}
+        >
           <span className="card__footer-button-text">
             Add to favourite's list
           </span>
