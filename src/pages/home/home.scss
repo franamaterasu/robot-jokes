@@ -4,8 +4,6 @@
   align-items: center;
   justify-content: center;
 
-
-
   &__intro,
   &__cards {
     display: flex;
@@ -67,5 +65,17 @@
         bottom: 0;
       }
     }
+  }
+
+  &__error {
+    margin-top: 15px;
+    font-family: 'Lora', sans-serif;
+    background-color: #000;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
   }
 }

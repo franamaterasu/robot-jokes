@@ -4,7 +4,15 @@ import { GrRobot } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import "./home.scss";
 
-const Home = ({ joke, user, handleClickFavourite, getJokes, favoriteList }) => {
+const Home = ({
+  joke,
+  user,
+  handleClickFavourite,
+  getJokes,
+  favoriteList,
+  setShowError,
+  showError,
+}) => {
   return (
     <section className="home">
       {joke && (
@@ -17,7 +25,13 @@ const Home = ({ joke, user, handleClickFavourite, getJokes, favoriteList }) => {
             joke={joke}
             getJokes={getJokes}
             handleClickFavourite={handleClickFavourite}
+            setShowError={setShowError}
           />
+          {showError && (
+            <p className="home__error">
+              This joke has added to the list previously
+            </p>
+          )}
         </section>
       )}
       {!joke && (

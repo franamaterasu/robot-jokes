@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./card.scss";
 
-const Card = ({ user, joke, getJokes, handleClickFavourite }) => {
+const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   const { id, type, setup, punchline } = joke;
   const { avatar, first_name, last_name } = user;
   const [showPunchLine, setShowPunchLine] = useState(false);
@@ -12,6 +12,7 @@ const Card = ({ user, joke, getJokes, handleClickFavourite }) => {
 
   const handleClick = () => {
     getJokes();
+    setShowError(false);
     setShowPunchLine(false);
   };
 

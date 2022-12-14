@@ -8,6 +8,7 @@ import "./app.scss";
 const App = () => {
   const [favoriteJoke, setFavoriteJoke] = useState({});
   const [favoriteList, setFavoriteList] = useState([]);
+  const [showError, setShowError] = useState(false);
   const { jokes, user, randomNumber, getJokes } = useFetch();
   const joke = jokes[randomNumber];
 
@@ -28,7 +29,15 @@ const App = () => {
 
   useEffect(() => {
     if (Object.keys(favoriteJoke).length !== 0) {
-      setFavoriteList([...favoriteList, favoriteJoke]);
+      const repeatedJoke = favoriteList.some(
+        (joke) => joke.name === favoriteJoke.name
+      );
+
+      if (!repeatedJoke) {
+        setFavoriteList([...favoriteList, favoriteJoke]);
+      } else {
+        setShowError(true);
+      }
     }
   }, [favoriteJoke]);
 
@@ -44,6 +53,8 @@ const App = () => {
               handleClickFavourite={handleClickFavourite}
               getJokes={getJokes}
               favoriteList={favoriteList}
+              setShowError={setShowError}
+              showError={showError}
             />
           }
         />
