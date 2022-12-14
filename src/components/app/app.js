@@ -32,8 +32,6 @@ const App = () => {
     }
   }, [favoriteJoke]);
 
-  console.log(favoriteList);
-
   return (
     <section className="app">
       <Routes>
@@ -51,7 +49,12 @@ const App = () => {
         />
         <Route
           path="/jokes"
-          element={<JokesList favoriteList={favoriteList} />}
+          element={
+            <JokesList
+              setFavoriteList={setFavoriteList}
+              favoriteList={favoriteList}
+            />
+          }
         />
       </Routes>
     </section>

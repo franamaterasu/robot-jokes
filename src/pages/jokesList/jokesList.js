@@ -2,7 +2,11 @@ import { GrTrash, GrLinkPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import "./jokeList.scss";
 
-const JokesList = ({ favoriteList }) => {
+const JokesList = ({ setFavoriteList, favoriteList }) => {
+  const handleDelete = ({ item }) => {
+    setFavoriteList(favoriteList.filter((joke) => joke.id !== item.id));
+  };
+
   return (
     <section className="list">
       <div className="list__container">
@@ -27,7 +31,10 @@ const JokesList = ({ favoriteList }) => {
                 <td className="list__table-body">{punchline}</td>
                 <td className="list__table-body">{type}</td>
                 <td className="list__table-body">
-                  <GrTrash className="list__table-icon" />
+                  <GrTrash
+                    onClick={() => handleDelete({ item })}
+                    className="list__table-icon"
+                  />
                 </td>
               </tr>
             );
