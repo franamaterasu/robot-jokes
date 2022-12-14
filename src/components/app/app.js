@@ -49,7 +49,10 @@ const App = () => {
             />
           }
         />
-        <Route path="/jokes" element={<JokesList />} />
+        <Route
+          path="/jokes"
+          element={<JokesList favoriteList={favoriteList} />}
+        />
       </Routes>
     </section>
   );

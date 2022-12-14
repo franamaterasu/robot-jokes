@@ -1,5 +1,44 @@
-const JokesList = () => {
-  return <p>List</p>;
+import { GrTrash, GrLinkPrevious } from "react-icons/gr";
+import { Link } from "react-router-dom";
+import "./jokeList.scss";
+
+const JokesList = ({ favoriteList }) => {
+  return (
+    <section className="list">
+      <div className="list__container">
+        <table className="list__table">
+          <tr>
+            <th className="list__table-header">Avatar</th>
+            <th className="list__table-header">Name</th>
+            <th className="list__table-header">Setup</th>
+            <th className="list__table-header">Punchline</th>
+            <th className="list__table-header">Type</th>
+            <th className="list__table-header">Actions</th>
+          </tr>
+          {favoriteList.map((item, index) => {
+            const { avatar, name, last_name, setup, punchline, type } = item;
+            return (
+              <tr className="list__table-line" key={index}>
+                <td className="list__table-body">
+                  <img src={avatar} alt={name} width="80" />
+                </td>
+                <td className="list__table-body">{`${name} ${last_name}`}</td>
+                <td className="list__table-body">{setup}</td>
+                <td className="list__table-body">{punchline}</td>
+                <td className="list__table-body">{type}</td>
+                <td className="list__table-body">
+                  <GrTrash className="list__table-icon" />
+                </td>
+              </tr>
+            );
+          })}
+        </table>
+      </div>
+      <Link to="/">
+        <GrLinkPrevious className="list__icon" />
+      </Link>
+    </section>
+  );
 };
 
 export default JokesList;
