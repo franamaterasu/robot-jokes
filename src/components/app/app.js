@@ -3,7 +3,7 @@ import useFetch from "../../components/hooks/useFetch";
 import Home from "../../pages/home";
 import JokesList from "../../pages/jokesList";
 import { Route, Routes } from "react-router-dom";
-import "./app.scss";
+import styled from "styled-components";
 
 const App = () => {
   const [favoriteJoke, setFavoriteJoke] = useState({});
@@ -11,6 +11,11 @@ const App = () => {
   const [showError, setShowError] = useState(false);
   const { jokes, user, randomNumber, getJokes } = useFetch();
   const joke = jokes[randomNumber];
+
+  const Container = styled.section`
+    background-color: #fdc500;
+    height: 100vh;
+  `;
 
   const handleClickFavourite = (joke, user) => {
     const { id, type, setup, punchline } = joke;
@@ -46,7 +51,7 @@ const App = () => {
   }, [favoriteJoke]);
 
   return (
-    <section className="app">
+    <Container>
       <Routes>
         <Route
           path="/"
@@ -72,7 +77,7 @@ const App = () => {
           }
         />
       </Routes>
-    </section>
+    </Container>
   );
 };
 

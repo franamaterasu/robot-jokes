@@ -1,26 +1,96 @@
 import EmptyState from "../../components/emptyState";
 import { GrTrash, GrLinkPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import "./jokeList.scss";
+import styled from "styled-components";
 
 const JokesList = ({ setFavoriteList, favoriteList }) => {
   const handleDelete = ({ item }) => {
     setFavoriteList(favoriteList.filter((joke) => joke.id !== item.id));
   };
 
+  const List = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    padding: 0 40px;
+  `;
+
+  const Container = styled.div`
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 50px;
+  `;
+
+  const Table = styled.table`
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+  `;
+
+  const TableHeader = styled.th`
+    background-color: #000;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    padding: 10px 20px;
+
+    &:first-of-type {
+      border-top-left-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: 5px;
+    }
+  `;
+
+  const TableLine = styled.tr`
+    background-color: #fff;
+
+    &:hover {
+      background-color: #d7b22c;
+    }
+  `;
+
+  const TableBody = styled.td`
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: "Lora", sans-serif;
+    border: 1px solid #000;
+
+    &:last-of-type {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  `;
+
+  const TableIconTrash = styled(GrTrash)`
+    font-size: 25px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  `;
+
+  const TableIconArrow = styled(GrLinkPrevious)`
+    font-size: 30px;
+  `;
+
   return (
-    <section className="list">
+    <List>
       {favoriteList.length !== 0 ? (
-        <div className="list__container">
-          <table className="list__table">
+        <Container>
+          <Table>
             <thead>
               <tr>
-                <th className="list__table-header">Avatar</th>
-                <th className="list__table-header">Name</th>
-                <th className="list__table-header">Setup</th>
-                <th className="list__table-header">Punchline</th>
-                <th className="list__table-header">Type</th>
-                <th className="list__table-header">Actions</th>
+                <TableHeader>Avatar</TableHeader>
+                <TableHeader>Name</TableHeader>
+                <TableHeader>Setup</TableHeader>
+                <TableHeader>Punchline</TableHeader>
+                <TableHeader>Type</TableHeader>
+                <TableHeader>Actions</TableHeader>
               </tr>
             </thead>
             <tbody>
@@ -28,34 +98,31 @@ const JokesList = ({ setFavoriteList, favoriteList }) => {
                 const { avatar, name, last_name, setup, punchline, type } =
                   item;
                 return (
-                  <tr className="list__table-line" key={index}>
-                    <td className="list__table-body">
+                  <TableLine key={index}>
+                    <TableBody>
                       <img src={avatar} alt={name} width="80" />
-                    </td>
-                    <td className="list__table-body">{`${name} ${last_name}`}</td>
-                    <td className="list__table-body">{setup}</td>
-                    <td className="list__table-body">{punchline}</td>
-                    <td className="list__table-body">{type}</td>
-                    <td className="list__table-body">
-                      <GrTrash
-                        onClick={() => handleDelete({ item })}
-                        className="list__table-icon"
-                      />
-                    </td>
-                  </tr>
+                    </TableBody>
+                    <TableBody>{`${name} ${last_name}`}</TableBody>
+                    <TableBody>{setup}</TableBody>
+                    <TableBody>{punchline}</TableBody>
+                    <TableBody>{type}</TableBody>
+                    <TableBody>
+                      <TableIconTrash onClick={() => handleDelete({ item })} />
+                    </TableBody>
+                  </TableLine>
                 );
               })}
             </tbody>
-          </table>
-        </div>
+          </Table>
+        </Container>
       ) : (
         <EmptyState />
       )}
 
       <Link to="/">
-        <GrLinkPrevious className="list__icon" />
+        <TableIconArrow />
       </Link>
-    </section>
+    </List>
   );
 };
 

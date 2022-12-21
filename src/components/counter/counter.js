@@ -1,12 +1,26 @@
 import { GrRobot } from "react-icons/gr";
-import "./counter.scss";
+import styled from "styled-components";
 
 const Counter = ({ favoriteList }) => {
+  const Container = styled.div`
+    display: flex;
+    align-items: center;
+  `;
+
+  const Icon = styled(GrRobot)`
+    font-size: 40px;
+  `;
+
+  const Number = styled.span`
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+  `;
+
   return (
-    <div className="counter">
-      <GrRobot className="counter__icon" />
-      <span className="counter__number">{favoriteList.length}</span>
-    </div>
+    <Container>
+      <Icon />
+      <Number>{favoriteList.length}</Number>
+    </Container>
   );
 };
 
