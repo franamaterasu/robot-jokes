@@ -3,7 +3,8 @@ import useFetch from "../../components/hooks/useFetch";
 import Home from "../../pages/home";
 import JokesList from "../../pages/jokesList";
 import { Route, Routes } from "react-router-dom";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { LightTheme } from "../themes";
 
 const App = () => {
   const [favoriteJoke, setFavoriteJoke] = useState({});
@@ -13,7 +14,7 @@ const App = () => {
   const joke = jokes[randomNumber];
 
   const Container = styled.section`
-    background-color: #fdc500;
+    background-color: ${LightTheme.color.yellow};
     height: 100vh;
   `;
 
@@ -51,33 +52,35 @@ const App = () => {
   }, [favoriteJoke]);
 
   return (
-    <Container>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              joke={joke}
-              user={user}
-              handleClickFavourite={handleClickFavourite}
-              getJokes={getJokes}
-              favoriteList={favoriteList}
-              setShowError={setShowError}
-              showError={showError}
-            />
-          }
-        />
-        <Route
-          path="/jokes"
-          element={
-            <JokesList
-              setFavoriteList={setFavoriteList}
-              favoriteList={favoriteList}
-            />
-          }
-        />
-      </Routes>
-    </Container>
+    <ThemeProvider theme={LightTheme}>
+      <Container>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                joke={joke}
+                user={user}
+                handleClickFavourite={handleClickFavourite}
+                getJokes={getJokes}
+                favoriteList={favoriteList}
+                setShowError={setShowError}
+                showError={showError}
+              />
+            }
+          />
+          <Route
+            path="/jokes"
+            element={
+              <JokesList
+                setFavoriteList={setFavoriteList}
+                favoriteList={favoriteList}
+              />
+            }
+          />
+        </Routes>
+      </Container>
+    </ThemeProvider>
   );
 };
 

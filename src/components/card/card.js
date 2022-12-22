@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { LightTheme } from "../themes";
 
 const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   const { id, type, setup, punchline } = joke;
@@ -17,17 +18,17 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   };
 
   const Card = styled.article`
-    background-color: #fff;
+    background-color: ${LightTheme.color.white};
     border-radius: 5px;
     max-width: 320px;
-    border: 2px solid #000;
+    border: 2px solid ${LightTheme.color.black};
   `;
 
   const ContainerImage = styled.div`
     position: relative;
     font-size: 0;
     min-height: 320px;
-    background-color: #fff;
+    background-color: ${LightTheme.color.white};
   `;
 
   const Image = styled.img`
@@ -38,17 +39,17 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   const Name = styled.p`
     position: absolute;
     bottom: 27px;
-    background-color: #000;
-    color: #fff;
+    background-color: ${LightTheme.color.black};
+    color: ${LightTheme.color.white};
     padding: 10px 35px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+    font-family: ${LightTheme.fonts.secondary};
+    font-weight: ${LightTheme.fonts.big};
     font-size: 18px;
   `;
 
   const TagStyles = styled.span`
-    background-color: #fdc500;
-    font-family: "Lora", sans-serif;
+    background-color: ${LightTheme.color.yellow};
+    font-family: ${LightTheme.fonts.primary};
     padding: 5px 20px;
     font-size: 14px;
     position: absolute;
@@ -65,25 +66,25 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   `;
 
   const ContainerInfo = styled.div`
-    background: #000;
+    background: ${LightTheme.color.black};
     text-align: center;
   `;
 
   const Joke = styled.p`
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+    font-family: ${LightTheme.fonts.secondary};
+    font-weight: ${LightTheme.fonts.big};
     line-height: 23px;
-    color: #fff;
+    color: ${LightTheme.color.white};
     padding: 15px 20px;
   `;
 
   const PunchLine = styled.p`
     text-align: center;
-    font-family: "Lora", sans-serif;
+    font-family: ${LightTheme.fonts.primary};
     padding: 15px 20px;
     font-size: 14px;
     line-height: 20px;
-    background-color: #fff;
+    background-color: ${LightTheme.color.white};
   `;
 
   const Footer = styled.footer`
@@ -91,16 +92,16 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   `;
 
   const FooterButtonText = styled.span`
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+    font-family: ${LightTheme.fonts.secondary};
+    font-weight: ${LightTheme.fonts.big};
     transition: color 0.5s ease-in-out;
-    color: #fff;
+    color: ${LightTheme.color.white};
     position: relative;
     z-index: 2;
   `;
 
   const FooterButton = styled.button`
-    background-color: #d7b22c;
+    background-color: ${LightTheme.color.darkYellow};
     border: 0;
     padding: 10px;
     position: relative;
@@ -114,21 +115,21 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
       left: 0;
       bottom: -58px;
       height: 100%;
-      background-color: #000;
-      border: 1px solid #000;
+      background-color: ${LightTheme.color.black};
+      border: 1px solid ${LightTheme.color.black};
       transition: bottom 0.5s ease-in-out;
     }
 
     &:nth-child(2) {
-      border-left: 1px solid #000;
-      border-right: 1px solid #000;
+      border-left: 1px solid ${LightTheme.color.black};
+      border-right: 1px solid ${LightTheme.color.black};
     }
 
     &:hover {
       cursor: pointer;
 
       ${FooterButtonText} {
-        color: #fff;
+        color: ${LightTheme.color.white};
       }
 
       &::before {

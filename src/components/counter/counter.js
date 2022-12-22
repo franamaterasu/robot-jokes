@@ -1,5 +1,6 @@
 import { GrRobot } from "react-icons/gr";
 import styled from "styled-components";
+import { LightTheme } from "../themes";
 
 const Counter = ({ favoriteList }) => {
   const Container = styled.div`
@@ -12,8 +13,8 @@ const Counter = ({ favoriteList }) => {
   `;
 
   const Number = styled.span`
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+    font-family: ${LightTheme.fonts.secondary};
+    font-weight: ${LightTheme.fonts.big};
   `;
 
   return (
