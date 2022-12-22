@@ -49,7 +49,7 @@ const App = () => {
         setShowError(false);
       }, 5000);
     }
-  }, [favoriteJoke, favoriteList]);
+  }, [favoriteJoke]);
 
   return (
     <ThemeProvider theme={LightTheme}>
