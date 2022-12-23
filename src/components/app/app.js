@@ -6,18 +6,19 @@ import { Route, Routes } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import { Base, LightTheme } from "../../themes";
 
+const theme = { ...Base, ...LightTheme };
+
+const Container = styled.section`
+  background-color: ${theme.color.yellow};
+  height: 100vh;
+`;
+
 const App = () => {
   const [favoriteJoke, setFavoriteJoke] = useState({});
   const [favoriteList, setFavoriteList] = useState([]);
   const [showError, setShowError] = useState(false);
   const { jokes, user, randomNumber, getJokes } = useFetch();
   const joke = jokes[randomNumber];
-  const theme = { ...Base, ...LightTheme };
-
-  const Container = styled.section`
-    background-color: ${theme.color.yellow};
-    height: 100vh;
-  `;
 
   const handleClickFavourite = (joke, user) => {
     const { id, type, setup, punchline } = joke;
