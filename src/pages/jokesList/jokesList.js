@@ -2,8 +2,11 @@ import EmptyState from "../../components/emptyState";
 import { GrTrash, GrLinkPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Base, LightTheme } from "../../themes";
 
 const JokesList = ({ setFavoriteList, favoriteList }) => {
+  const theme = { ...Base, ...LightTheme };
+
   const handleDelete = ({ item }) => {
     setFavoriteList(favoriteList.filter((joke) => joke.id !== item.id));
   };
@@ -30,10 +33,10 @@ const JokesList = ({ setFavoriteList, favoriteList }) => {
   `;
 
   const TableHeader = styled.th`
-    background-color: #000;
-    color: #fff;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+    background-color: ${theme.color.black};
+    color: ${theme.color.white};
+    font-family: ${theme.fonts.secondary};
+    font-weight: ${theme.fonts.big};
     padding: 10px 20px;
 
     &:first-of-type {
@@ -46,10 +49,10 @@ const JokesList = ({ setFavoriteList, favoriteList }) => {
   `;
 
   const TableLine = styled.tr`
-    background-color: #fff;
+    background-color: ${theme.color.white};
 
     &:hover {
-      background-color: #d7b22c;
+      background-color: ${theme.color.darkYellow};
     }
   `;
 
@@ -57,8 +60,8 @@ const JokesList = ({ setFavoriteList, favoriteList }) => {
     vertical-align: middle;
     text-align: center;
     padding: 10px 20px;
-    font-family: "Lora", sans-serif;
-    border: 1px solid #000;
+    font-family: ${theme.fonts.primary};
+    border: 1px solid ${theme.color.black};
 
     &:last-of-type {
       border-bottom-left-radius: 5px;

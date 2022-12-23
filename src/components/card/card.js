@@ -1,11 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { LightTheme } from "../themes";
+import { Base, LightTheme } from "../../themes";
 
 const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   const { id, type, setup, punchline } = joke;
   const { avatar, first_name, last_name } = user;
   const [showPunchLine, setShowPunchLine] = useState(false);
+  const theme = { ...Base, ...LightTheme };
 
   const handleClickShowPunchLine = () => {
     setShowPunchLine(!showPunchLine);
@@ -18,17 +19,17 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   };
 
   const Card = styled.article`
-    background-color: ${LightTheme.color.white};
+    background-color: ${theme.color.white};
     border-radius: 5px;
     max-width: 320px;
-    border: 2px solid ${LightTheme.color.black};
+    border: 2px solid ${theme.color.black};
   `;
 
   const ContainerImage = styled.div`
     position: relative;
     font-size: 0;
     min-height: 320px;
-    background-color: ${LightTheme.color.white};
+    background-color: ${theme.color.white};
   `;
 
   const Image = styled.img`
@@ -39,17 +40,17 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   const Name = styled.p`
     position: absolute;
     bottom: 27px;
-    background-color: ${LightTheme.color.black};
-    color: ${LightTheme.color.white};
+    background-color: ${theme.color.black};
+    color: ${theme.color.white};
     padding: 10px 35px;
-    font-family: ${LightTheme.fonts.secondary};
-    font-weight: ${LightTheme.fonts.big};
+    font-family: ${theme.fonts.secondary};
+    font-weight: ${theme.fonts.big};
     font-size: 18px;
   `;
 
   const TagStyles = styled.span`
-    background-color: ${LightTheme.color.yellow};
-    font-family: ${LightTheme.fonts.primary};
+    background-color: ${theme.color.yellow};
+    font-family: ${theme.fonts.primary};
     padding: 5px 20px;
     font-size: 14px;
     position: absolute;
@@ -66,25 +67,25 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   `;
 
   const ContainerInfo = styled.div`
-    background: ${LightTheme.color.black};
+    background: ${theme.color.black};
     text-align: center;
   `;
 
   const Joke = styled.p`
-    font-family: ${LightTheme.fonts.secondary};
-    font-weight: ${LightTheme.fonts.big};
+    font-family: ${theme.fonts.secondary};
+    font-weight: ${theme.fonts.big};
     line-height: 23px;
-    color: ${LightTheme.color.white};
+    color: ${theme.color.white};
     padding: 15px 20px;
   `;
 
   const PunchLine = styled.p`
     text-align: center;
-    font-family: ${LightTheme.fonts.primary};
+    font-family: ${theme.fonts.primary};
     padding: 15px 20px;
     font-size: 14px;
     line-height: 20px;
-    background-color: ${LightTheme.color.white};
+    background-color: ${theme.color.white};
   `;
 
   const Footer = styled.footer`
@@ -92,16 +93,16 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
   `;
 
   const FooterButtonText = styled.span`
-    font-family: ${LightTheme.fonts.secondary};
-    font-weight: ${LightTheme.fonts.big};
+    font-family: ${theme.fonts.secondary};
+    font-weight: ${theme.fonts.big};
     transition: color 0.5s ease-in-out;
-    color: ${LightTheme.color.white};
+    color: ${theme.color.white};
     position: relative;
     z-index: 2;
   `;
 
   const FooterButton = styled.button`
-    background-color: ${LightTheme.color.darkYellow};
+    background-color: ${theme.color.darkYellow};
     border: 0;
     padding: 10px;
     position: relative;
@@ -115,21 +116,21 @@ const Card = ({ user, joke, getJokes, handleClickFavourite, setShowError }) => {
       left: 0;
       bottom: -58px;
       height: 100%;
-      background-color: ${LightTheme.color.black};
-      border: 1px solid ${LightTheme.color.black};
+      background-color: ${theme.color.black};
+      border: 1px solid ${theme.color.black};
       transition: bottom 0.5s ease-in-out;
     }
 
     &:nth-child(2) {
-      border-left: 1px solid ${LightTheme.color.black};
-      border-right: 1px solid ${LightTheme.color.black};
+      border-left: 1px solid ${theme.color.black};
+      border-right: 1px solid ${theme.color.black};
     }
 
     &:hover {
       cursor: pointer;
 
       ${FooterButtonText} {
-        color: ${LightTheme.color.white};
+        color: ${theme.color.white};
       }
 
       &::before {

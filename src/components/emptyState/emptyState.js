@@ -1,8 +1,10 @@
 import { GrSatellite } from "react-icons/gr";
 import styled from "styled-components";
-import { LightTheme } from "../themes";
+import { Base, LightTheme } from "../../themes";
 
 const EmptyState = () => {
+  const theme = { ...Base, ...LightTheme };
+
   const Container = styled.section`
     margin-bottom: 25px;
     text-align: center;
@@ -15,8 +17,8 @@ const EmptyState = () => {
 
   const Message = styled.p`
     font-size: 21px;
-    font-weight: ${LightTheme.fonts.big};
-    font-family: ${LightTheme.fonts.secondary};
+    font-weight: ${theme.fonts.big};
+    font-family: ${theme.fonts.secondary};
   `;
 
   return (

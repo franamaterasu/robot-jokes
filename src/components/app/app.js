@@ -4,7 +4,7 @@ import Home from "../../pages/home";
 import JokesList from "../../pages/jokesList";
 import { Route, Routes } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { LightTheme } from "../themes";
+import { Base, LightTheme } from "../../themes";
 
 const App = () => {
   const [favoriteJoke, setFavoriteJoke] = useState({});
@@ -12,9 +12,10 @@ const App = () => {
   const [showError, setShowError] = useState(false);
   const { jokes, user, randomNumber, getJokes } = useFetch();
   const joke = jokes[randomNumber];
+  const theme = { ...Base, ...LightTheme };
 
   const Container = styled.section`
-    background-color: ${LightTheme.color.yellow};
+    background-color: ${theme.color.yellow};
     height: 100vh;
   `;
 
@@ -52,7 +53,7 @@ const App = () => {
   }, [favoriteJoke]);
 
   return (
-    <ThemeProvider theme={LightTheme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <Routes>
           <Route

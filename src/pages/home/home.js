@@ -3,6 +3,7 @@ import Card from "../../components/card";
 import styled from "styled-components";
 import { GrRobot } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { Base, LightTheme } from "../../themes";
 
 const Home = ({
   joke,
@@ -13,6 +14,8 @@ const Home = ({
   setShowError,
   showError,
 }) => {
+  const theme = { ...Base, ...LightTheme };
+
   const Container = styled.section`
     height: 100vh;
     display: flex;
@@ -22,10 +25,10 @@ const Home = ({
 
   const ErrorMessage = styled.p`
     margin-top: 15px;
-    font-family: "Lora", sans-serif;
-    background-color: #0000;
+    font-family: ${theme.fonts.primary};
+    background-color: ${theme.color.black};
     width: 100%;
-    color: #ffff;
+    color: ${theme.color.white};
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
@@ -41,7 +44,7 @@ const Home = ({
   const IconContainer = styled(Link)`
     margin-bottom: 20px;
     text-decoration: none;
-    color: #000;
+    color: ${theme.color.black};
   `;
 
   const Icon = styled(GrRobot)`
@@ -58,18 +61,18 @@ const Home = ({
   const ButtonText = styled.span`
     position: relative;
     z-index: 2;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+    font-family: ${theme.fonts.secondary};
+    font-weight: ${theme.fonts.big};
     font-size: 20px;
     transition: color 0.5s ease-in-out;
   `;
 
   const Button = styled.button`
-    background-color: #fff;
+    background-color: ${theme.color.white};
     padding: 10px 15px;
     position: relative;
     overflow: hidden;
-    border: 1px solid #000;
+    border: 1px solid ${theme.color.black};
 
     &::before {
       content: "";
@@ -79,8 +82,8 @@ const Home = ({
       left: 0;
       bottom: -48px;
       height: 100%;
-      background-color: #000;
-      border: 1px solid #000;
+      background-color: ${theme.color.black};
+      border: 1px solid ${theme.color.black};
       transition: bottom 0.5s ease-in-out;
     }
 
@@ -93,7 +96,7 @@ const Home = ({
     }
 
     &:hover ${ButtonText} {
-      color: #fff;
+      color: ${theme.color.white};
     }
   `;
 
